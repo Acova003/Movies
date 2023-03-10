@@ -12,13 +12,12 @@ public class BestMovieService
         return movie;
     }
 
-    @Autowired
     public void setMovie(Movie movie){
         this.movie = movie;
     }
 
     @Autowired
-    public BestMovieService(@Qualifier("batmanMovie")Movie movie) { 
+    public BestMovieService(@Qualifier("titanicMovie")Movie movie) { 
         this.movie = movie;
     }
 }
