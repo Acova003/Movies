@@ -9,11 +9,13 @@
 <body>
     <a href="/">Home</a>
     <h2>Vote for the best movie</h2>
-    <form action="/voteForBestMovie" method="Get">
+    <form action="/voteForBestMovieForm" method="Get">
         <label for='title'>Movie title</label><br>
         <input type="text" name="movieTitle" placeholder="Titanic"><br>
         <input type="submit" value="Submit">
     </form>
+
+    <p th:text=" 'Your favorite movie is: ' + ${BestMovieVote}"></p>
     
 </body>
 </html>
