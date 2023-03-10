@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f6084364-efa1-4e0d-823c-dc18bd811464" name="Changes" comment="Define MovieApp class and main method">
-      <change beforePath="$PROJECT_DIR$/starter/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/starter/pom.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f6084364-efa1-4e0d-823c-dc18bd811464" name="Changes" comment="Define MovieApp class and main method" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
