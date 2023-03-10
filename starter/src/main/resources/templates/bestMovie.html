@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +7,8 @@
     <title>Document</title>
 </head>
 <body>
-    <a href ="Best movie">Find the best Movie!</a>
-    <p>I Love Movies!</p>
+    <a href="/">Home</a>
+    <p> th:text=" 'The best movie is: ' + ${BestMovie}"</p>
+    
 </body>
 </html>
