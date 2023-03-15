@@ -26,5 +26,10 @@ public class MovieController {
         model.addAttribute("BestMovieVote", movieTitle);
         return "voteForTheBestMovie";
     }
+
+    @RequestMapping("/addMovieForm")
+    public String addMovieFormPage(HttpServletRequest request, Model model){
+        return "addMovie";
+    }
     
 }
