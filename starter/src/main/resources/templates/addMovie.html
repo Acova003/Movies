@@ -10,6 +10,16 @@
 </head>
 <body>
     <a href="/">Home</a>
+    <h2>Add a movie to our catalogue!</h2>
+    <form action="/addMovieForm" method="Post">
+        <label for='title'>Movie title</label><br>
+        <input type="text" name="movieTitle"><br>
+        <label for='maturity_rating'>Maturity rating</label><br>
+        <input type="text" name="maturityRating"><br>
+        <label for='genre'>Genre</label><br>
+        <input type="text" name="genre"><br>
+        <input type="submit" value="Submit">
+    </form>
     
 </body>
 </html>
