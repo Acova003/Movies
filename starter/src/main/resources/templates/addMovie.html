@@ -11,14 +11,11 @@
 <body>
     <a href="/">Home</a>
     <h2>Add a movie to our catalogue!</h2>
-    <form action="/addMovieForm" method="Post">
-        <label for='title'>Movie title</label><br>
-        <input type="text" name="movieTitle"><br>
-        <label for='maturity_rating'>Maturity rating</label><br>
-        <input type="text" name="maturityRating"><br>
-        <label for='genre'>Genre</label><br>
-        <input type="text" name="genre"><br>
-        <input type="submit" value="Submit">
+    <form action="/addMovieForm" method="POST">
+        <p>Movie Title: <input type="text" name="movieTitle" /></p>
+        <p>Maturity Rating: <input type="text" name="maturityRating" /></p>
+        <p>Genre: <input type="text" name="genre" /></p>
+        <p><input type="submit" value="Submit" /></p>
     </form>
     
 </body>
