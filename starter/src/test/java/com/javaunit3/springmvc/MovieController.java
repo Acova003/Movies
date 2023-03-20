@@ -1,5 +1,7 @@
 package com.javaunit3.springmvc;
 
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -27,8 +29,30 @@ public class MovieController {
         return "voteForTheBestMovie";
     }
 
+    @Autowired
+    private SessionFactory sessionFactory;
+    
     @RequestMapping("/addMovieForm")
-    public String addMovieFormPage(HttpServletRequest request, Model model){
+    public String addMovieFormPage(){
+        return "addMovie";
+    }
+
+    @RequestMapping("/addMovie")
+    public String addMovie(HttpServletRequest request){
+        String movieTitle = request.getParameter("movieTitle");
+        String maturityRating = request.getParameter("maturityRating");
+        String genre = request.getParameter("genre");
+
+        MovieEntity movieEntity = new MovieEntity();
+        movieEntity.setTitle(movieTitle);
+        movieEntity.setMaturityRating(maturityRating);
+        movieEntity.setGenre(genre);
+
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        session.save(movieEntity);
+        session.getTransaction().commit();
+
         return "addMovie";
     }
     
