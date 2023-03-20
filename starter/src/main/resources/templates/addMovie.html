@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
@@ -13,9 +13,9 @@
     <h2>Add a movie to our catalogue!</h2>
     <form action="/addMovieForm" method="POST">
         <p>Movie Title: <input type="text" name="movieTitle" /></p>
-        <p>Maturity Rating: <input type="text" name="maturityRating" /></p>
-        <p>Genre: <input type="text" name="genre" /></p>
-        <p><input type="submit" value="Submit" /></p>
+    <p>Maturity Rating: <input type="text" name="maturityRating" /></p>
+    <p>Genre: <input type="text" name="genre" /></p>
+    <p><input type="submit" value="Submit" /></p>
     </form>
     
 </body>
