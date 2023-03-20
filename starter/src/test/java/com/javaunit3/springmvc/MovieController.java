@@ -7,6 +7,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.javaunit3.springmvc.model.MovieEntity;
+
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
@@ -23,9 +27,12 @@ public class MovieController {
         return "bestMovie";
     }
     @RequestMapping("/voteForBestMovieForm")
-    public String voteForBestMovieFormPage(HttpServletRequest request, Model model){
-        String movieTitle = request.getParameter("movieTitle");
-        model.addAttribute("BestMovieVote", movieTitle);
+    public String voteForBestMovieFormPage(Model model){
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+        List<MovieEntity> movieEntityList = session.createQuery("from MovieEntity"). list();
+        session.getTransaction().commit();
+        model.addAttribute("movies", movieEntityList);
         return "voteForTheBestMovie";
     }
 
@@ -51,6 +58,10 @@ public class MovieController {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
         session.save(movieEntity);
+
+        Integer movieId = movieEntity.getId();
+        System.out.println(movieId);
+        
         session.getTransaction().commit();
 
         return "addMovie";

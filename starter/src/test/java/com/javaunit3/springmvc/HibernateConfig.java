@@ -4,6 +4,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.javaunit3.springmvc.model.MovieEntity;
+
 @Configuration
 public class HibernateConfig {
 

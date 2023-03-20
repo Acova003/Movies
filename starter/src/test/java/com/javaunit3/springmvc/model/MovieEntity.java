@@ -1,4 +1,4 @@
-package com.javaunit3.springmvc;
+package com.javaunit3.springmvc.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
