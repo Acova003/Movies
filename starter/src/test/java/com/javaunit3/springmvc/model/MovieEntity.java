@@ -34,6 +34,10 @@ public class MovieEntity {
     @JoinColumn(name="movie_id")
     private List<VoteEntity> votes = new ArrayList<>();
 
+    public void addVote(List<VoteEntity> votes, VoteEntity vote){
+        votes.add(vote);
+    }
+
     public String getTitle(){
         return title;
     }

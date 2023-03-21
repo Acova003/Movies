@@ -1,17 +1,21 @@
 package com.javaunit3.springmvc.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="votes")
 public class VoteEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "voter_id")
     private Integer id;
 
-    @Column(name = "voter_Name")
+    @Column(name = "voter_name")
     private String voterName;
 
     public Integer getId(){
