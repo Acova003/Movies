@@ -32,10 +32,18 @@ public class MovieEntity {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name="movie_id")
-    private List<VoteEntity> votes = new ArrayList<>();
+    private List<VoteEntity> votes;
 
-    public void addVote(List<VoteEntity> votes, VoteEntity vote){
-        votes.add(vote);
+    public List<VoteEntity> getVotes(){
+        return votes;
+    }
+
+    public void setVotes(List<VoteEntity> votes){
+        this.votes = votes;
+    }
+
+    public void addVote(VoteEntity vote){
+        this.votes.add(vote);
     }
 
     public String getTitle(){

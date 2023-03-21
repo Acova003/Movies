@@ -41,18 +41,15 @@ public class MovieController {
     public String voteForBestMovie(HttpServletRequest request, Model model){
         String movieId = request.getParameter("movieId");
         String voterName = request.getParameter("voterName");
-
         Session session = sessionFactory.getCurrentSession();
-
         session.beginTransaction();
 
         MovieEntity movieEntity = (MovieEntity) session.get(MovieEntity.class, Integer.parseInt(movieId));
         VoteEntity newVote = new VoteEntity();
         newVote.setVoterName(voterName);
         movieEntity.addVote(newVote);
-
         session.update(movieEntity);
-
+        
         session.getTransaction().commit();
 
         return "voteForBestMovie";
