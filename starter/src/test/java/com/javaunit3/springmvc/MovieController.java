@@ -29,7 +29,7 @@ public class MovieController {
         Session session = sessionFactory.getCurrentSession();
         session.beginTransaction();
 
-        List<MovieEntity> movieEntityList = session.createQuery("from Movie Entity").list();
+        List<MovieEntity> movieEntityList = session.createQuery("from MovieEntity").list();
         movieEntityList.sort(Comparator.comparing(movieEntity -> movieEntity.getVotes().size()));
 
         MovieEntity movieWithMostVotes = movieEntityList.get(movieEntityList.size() - 1);
