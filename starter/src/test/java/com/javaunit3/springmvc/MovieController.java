@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.javaunit3.springmvc.model.MovieEntity;
 import com.javaunit3.springmvc.model.VoteEntity;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,7 +26,23 @@ public class MovieController {
     }
     @RequestMapping("/bestMovie")
     public String getBestMoviePage(Model model){
-        model.addAttribute("BestMovie", bestMovieService.getBestMovie().getTitle());
+        Session session = sessionFactory.getCurrentSession();
+        session.beginTransaction();
+
+        List<MovieEntity> movieEntityList = session.createQuery("from Movie Entity").list();
+        movieEntityList.sort(Comparator.comparing(movieEntity -> movieEntity.getVotes().size()));
+
+        MovieEntity movieWithMostVotes = movieEntityList.get(movieEntityList.size() - 1);
+        List<String> voterNames = new ArrayList<>();
+
+        for (VoteEntity vote: movieWithMostVotes.getVotes()){
+            voterNames.add(vote.getVoterName());
+        }
+        String voterNamesList = String.join(",", voterNames);
+        model.addAttribute("bestMovie", movieWithMostVotes.getTitle());
+        model.addAttribute("bestMovieVoters", voterNamesList);
+        session.getTransaction().commit();
+
         return "bestMovie";
     }
     @RequestMapping("/voteForBestMovieForm")
